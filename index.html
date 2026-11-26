@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="ca-valencia" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Proposta de col·laboració de l'IES Lluís Simarro per a Grupo Mazo: acollida d'alumnat del Curs d'Especialització en Recursos i Serveis en el Núvol." data-i18n-attr="content:meta.description">
+  <meta name="theme-color" content="#0F172A">
+  <title>Proposta per a Grupo Mazo · IES Lluís Simarro</title>
+
+  <!-- Tipografia -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Icones (Lucide) -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+
+  <link rel="stylesheet" href="css/estilos.css">
+  <script src="js/i18n.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#deck" data-i18n="ui.skip">Saltar al contingut de la presentació</a>
+
+  <!-- ============ CAPÇALERA: progrés, idioma, tema i índex ============ -->
+  <header class="topbar">
+    <div class="progress" role="progressbar" aria-label="Progrés de la presentació" data-i18n-attr="aria-label:ui.progress" aria-valuemin="1" aria-valuemax="12" aria-valuenow="1">
+      <span class="progress__bar"></span>
+    </div>
+
+    <div class="topbar__inner">
+      <p class="brand">
+        <i data-lucide="cloud" class="brand__icon" aria-hidden="true"></i>
+        <span class="brand__name">IES Lluís Simarro</span>
+        <span class="brand__sep" aria-hidden="true">·</span>
+        <span class="brand__course" data-i18n="ui.brandCourse">CE Recursos i Serveis en el Núvol</span>
+      </p>
+
+      <div class="topbar__tools">
+        <div class="lang-switch" role="group" aria-label="Idioma" data-i18n-attr="aria-label:ui.language">
+          <button type="button" data-lang="va" lang="ca-valencia" aria-pressed="true" aria-label="Valencià">VA</button>
+          <button type="button" data-lang="es" lang="es" aria-pressed="false" aria-label="Castellano">ES</button>
+          <button type="button" data-lang="en" lang="en" aria-pressed="false" aria-label="English">EN</button>
+        </div>
+
+        <button class="theme-toggle" type="button" id="themeToggle" aria-pressed="false" aria-label="Activar el mode dia" data-i18n-attr="aria-label:ui.themeToLight">
+          <i data-lucide="sun" class="icon-sun" aria-hidden="true"></i>
+          <i data-lucide="moon" class="icon-moon" aria-hidden="true"></i>
+          <span class="theme-toggle__fallback" aria-hidden="true"></span>
+        </button>
+
+        <nav class="index-nav" aria-label="Índex de diapositives" data-i18n-attr="aria-label:ui.indexNav">
+          <button class="index-nav__toggle" id="indexToggle" type="button" aria-expanded="false" aria-controls="indexMenu" aria-label="Obrir l'índex de diapositives" data-i18n-attr="aria-label:ui.indexOpen">
+            <i data-lucide="list" aria-hidden="true"></i>
+            <span class="index-nav__label" data-i18n="ui.index">Índex</span>
+          </button>
+          <ol class="index-nav__menu" id="indexMenu" hidden>
+            <li><button type="button" data-goto="0"><span class="index-nav__num">01</span> <span data-i18n="toc.1">Portada</span></button></li>
+            <li><button type="button" data-goto="1"><span class="index-nav__num">02</span> <span data-i18n="toc.company">Coneixem Grupo Mazo</span></button></li>
+            <li><button type="button" data-goto="2"><span class="index-nav__num">03</span> <span data-i18n="toc.questions">Abans de proposar-vos res</span></button></li>
+            <li><button type="button" data-goto="3"><span class="index-nav__num">04</span> <span data-i18n="toc.2">Qui som</span></button></li>
+            <li><button type="button" data-goto="4"><span class="index-nav__num">05</span> <span data-i18n="toc.3">Infraestructura d'IA pròpia</span></button></li>
+            <li><button type="button" data-goto="5"><span class="index-nav__num">06</span> <span data-i18n="toc.4">El repte de la infraestructura</span></button></li>
+            <li><button type="button" data-goto="6"><span class="index-nav__num">07</span> <span data-i18n="toc.5">Competències de l'alumnat</span></button></li>
+            <li><button type="button" data-goto="7"><span class="index-nav__num">08</span> <span data-i18n="toc.6">Escenaris i arquitectura</span></button></li>
+            <li><button type="button" data-goto="8"><span class="index-nav__num">09</span> <span data-i18n="toc.7">Simulació 3D: físic o núvol</span></button></li>
+            <li><button type="button" data-goto="9"><span class="index-nav__num">10</span> <span data-i18n="toc.savings">Escenari fictici: CPD o núvol</span></button></li>
+            <li><button type="button" data-goto="10"><span class="index-nav__num">11</span> <span data-i18n="toc.8">Com funciona la col·laboració</span></button></li>
+            <li><button type="button" data-goto="11"><span class="index-nav__num">12</span> <span data-i18n="toc.9">Contacte</span></button></li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ DIAPOSITIVES ============ -->
+  <main class="deck" id="deck" tabindex="-1">
+
+    <!-- 1 · PORTADA -->
+    <section class="slide slide--cover is-active" id="s1" aria-labelledby="s1-title" data-title="Portada" data-i18n-attr="data-title:toc.1">
+      <div class="slide__inner cover">
+        <div class="cover__text">
+          <p class="eyebrow reveal d1">
+            <i data-lucide="handshake" aria-hidden="true"></i>
+            <span data-i18n="s1.eyebrow">Proposta de col·laboració per a Grupo Mazo · Formació en empresa</span>
+          </p>
+          <h1 class="cover__title reveal d2" id="s1-title" tabindex="-1" data-i18n="s1.title">Talent <span class="hl">cloud</span> per a una logística que no s'atura</h1>
+          <p class="cover__lead reveal d3" data-i18n="s1.lead">Alumnat del <strong>Curs d'Especialització en Recursos i Serveis en el Núvol</strong> preparat per a ajudar Grupo Mazo a avaluar la migració al núvol, connectar seu i delegacions i aprofitar les dades de la cadena de fred.</p>
+
+          <ul class="chips reveal d4" aria-label="Dades clau" data-i18n-attr="aria-label:s1.chipsLabel">
+            <li class="chip"><i data-lucide="school" aria-hidden="true"></i> <span>IES Lluís Simarro · Xàtiva</span></li>
+            <li class="chip chip--accent"><i data-lucide="award" aria-hidden="true"></i> <span data-i18n="s1.chip2">Centre d'Excel·lència en IA i Big Data</span></li>
+            <li class="chip"><i data-lucide="calendar-days" aria-hidden="true"></i> <span data-i18n="s1.chip3">Formació en empresa: maig–juny</span></li>
+            <li class="chip"><i data-lucide="map-pin" aria-hidden="true"></i> <span data-i18n="s1.chip4">A prop de la vostra seu d'Alzira</span></li>
+          </ul>
+
+          <div class="cover__actions reveal d5">
+            <button class="btn btn--primary btn--lg btn--pulse" type="button" data-goto="1">
+              <span data-i18n="s1.start">Començar la presentació</span>
+              <i data-lucide="arrow-right" aria-hidden="true"></i>
+            </button>
+            <p class="hint hint--keys" data-i18n="s1.keys">
+              <kbd>←</kbd> <kbd>→</kbd> o <kbd>Espai</kbd> per a navegar
+            </p>
+          </div>
+        </div>
+
+        <!-- Animació 3D: computació al núvol, transferència de dades i xarxa -->
+        <figure class="cover__art reveal d3">
+          <div class="netscene" data-no-swipe>
+            <canvas class="netscene__canvas" id="netScene" role="img" aria-label="Animació 3D: un núvol de computació connectat a la xarxa de la seu i a camions que envien dades de posició i temperatura" data-i18n-attr="aria-label:s1.netLabel"></canvas>
+          </div>
+          <figcaption class="netscene__legend" aria-hidden="true">
+            <span class="netscene__key netscene__key--up" data-i18n="s1.netUp">Telemetria al núvol</span>
+            <span class="netscene__key netscene__key--down" data-i18n="s1.netDown">Rutes i avisos als vehicles</span>
+            <span class="netscene__key netscene__key--lan" data-i18n="s1.netLan">Xarxa de la seu</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 2 · CONEIXEM GRUPO MAZO -->
+    <section class="slide" id="s-company" aria-labelledby="s-company-title" data-title="Coneixem Grupo Mazo" data-i18n-attr="data-title:toc.company">
+      <div class="slide__inner company">
+        <div class="company__text">
+          <p class="eyebrow reveal d1"><i data-lucide="truck" aria-hidden="true"></i> <span data-i18n="sco.eyebrow">02 · Coneixem Grupo Mazo</span></p>
+          <h2 class="slide__title reveal d2" id="s-company-title" tabindex="-1" data-i18n="sco.title">Una logística que no s'atura, <span class="hl">24 h / 365 dies</span></h2>
+          <p class="slide__lead reveal d3" data-i18n="sco.lead">Empresa familiar d'Alzira especialitzada en càrregues completes a temperatura controlada (fruita, verdura i producte fresc) i en mercaderia seca.</p>
+
+          <ul class="kpis reveal d4" aria-label="Xifres de Grupo Mazo" data-i18n-attr="aria-label:sco.kpisLabel">
+            <li class="kpi"><span class="kpi__value">+600</span><span class="kpi__label" data-i18n="sco.k1">persones a l'equip</span></li>
+            <li class="kpi"><span class="kpi__value">+1.000</span><span class="kpi__label" data-i18n="sco.k2">vehicles propis entre tractores i semiremolcs</span></li>
+            <li class="kpi"><span class="kpi__value">+100.000 m²</span><span class="kpi__label" data-i18n="sco.k3">de seu central a Alzira, amb <em>cross-docking</em> de fred</span></li>
+            <li class="kpi"><span class="kpi__value">120,6 M€</span><span class="kpi__label" data-i18n="sco.k4">de facturació el 2024</span></li>
+          </ul>
+
+          <h3 class="who__subtitle reveal d5" data-i18n="sco.dataTitle">El que això suposa en dades</h3>
+          <ul class="data-tags reveal d5">
+            <li><i data-lucide="thermometer-snowflake" aria-hidden="true"></i> <span data-i18n="sco.t1">GPS i temperatura en temps real</span></li>
+            <li><i data-lucide="route" aria-hidden="true"></i> <span data-i18n="sco.t2">Operació multimodal i multipaís</span></li>
+            <li><i data-lucide="building" aria-hidden="true"></i> <span data-i18n="sco.t3">Delegacions a Cadis, Canàries i Alemanya</span></li>
+            <li><i data-lucide="clock" aria-hidden="true"></i> <span data-i18n="sco.t4">Servei continu, sense aturades</span></li>
+          </ul>
+        </div>
+
+        <figure class="routes reveal d3" aria-labelledby="routes-cap">
+          <svg class="routes__svg" viewBox="0 0 420 330" role="img" aria-labelledby="routes-cap" focusable="false">
+            <!-- Rutes (des de la seu d'Alzira) -->
+            <path id="r-eu" class="route route--road" d="M210 165 Q 220 95 262 42"/>
+            <path id="r-eu-rail" class="route route--rail" d="M216 167 Q 240 100 276 48"/>
+            <path id="r-bal" class="route route--sea" d="M210 165 Q 280 140 340 150"/>
+            <path id="r-mar" class="route route--sea" d="M210 165 Q 190 225 168 268"/>
+            <path id="r-alg" class="route route--sea" d="M210 165 Q 270 220 304 262"/>
+            <path id="r-can" class="route route--sea" d="M210 165 Q 110 230 66 278"/>
+            <path id="r-sv" class="route route--remote" d="M210 165 Q 110 100 54 92"/>
+
+            <!-- Paquets en moviment -->
+            <circle class="route-packet route-packet--road" r="4"><animateMotion dur="3.2s" repeatCount="indefinite"><mpath href="#r-eu"/></animateMotion></circle>
+            <circle class="route-packet route-packet--rail" r="3.5"><animateMotion dur="4.2s" begin="1s" repeatCount="indefinite"><mpath href="#r-eu-rail"/></animateMotion></circle>
+            <circle class="route-packet route-packet--sea" r="4"><animateMotion dur="3.6s" begin="0.4s" repeatCount="indefinite"><mpath href="#r-bal"/></animateMotion></circle>
+            <circle class="route-packet route-packet--sea" r="4"><animateMotion dur="3s" begin="0.9s" repeatCount="indefinite"><mpath href="#r-mar"/></animateMotion></circle>
+            <circle class="route-packet route-packet--sea" r="4"><animateMotion dur="3.4s" begin="1.4s" repeatCount="indefinite"><mpath href="#r-alg"/></animateMotion></circle>
+            <circle class="route-packet route-packet--sea" r="4"><animateMotion dur="4s" begin="0.2s" repeatCount="indefinite"><mpath href="#r-can"/></animateMotion></circle>
+            <circle class="route-packet route-packet--remote" r="3.5"><animateMotion dur="5s" begin="0.7s" repeatCount="indefinite"><mpath href="#r-sv"/></animateMotion></circle>
+
+            <!-- Destinacions -->
+            <g class="dest"><circle cx="262" cy="42" r="8"/><text x="262" y="24" text-anchor="middle" data-i18n="sco.dEu">Europa · Alemanya</text></g>
+            <g class="dest"><circle cx="340" cy="150" r="8"/><text x="340" y="132" text-anchor="middle" data-i18n="sco.dBal">Balears</text></g>
+            <g class="dest"><circle cx="168" cy="268" r="8"/><text x="168" y="292" text-anchor="middle" data-i18n="sco.dMar">Marroc</text></g>
+            <g class="dest"><circle cx="304" cy="262" r="8"/><text x="304" y="286" text-anchor="middle" data-i18n="sco.dAlg">Algèria</text></g>
+            <g class="dest"><circle cx="66" cy="278" r="8"/><text x="66" y="302" text-anchor="middle" data-i18n="sco.dCan">Canàries</text></g>
+            <g class="dest dest--remote"><circle cx="54" cy="92" r="8"/><text x="54" y="74" text-anchor="middle">El Salvador</text></g>
+
+            <!-- Seu central -->
+            <g class="hub">
+              <circle class="hub__pulse" cx="210" cy="165" r="18"/>
+              <circle class="hub__dot" cx="210" cy="165" r="15"/>
+              <text class="hub__label" x="210" y="206" text-anchor="middle">Alzira</text>
+            </g>
+          </svg>
+          <figcaption class="routes__cap" id="routes-cap">
+            <span class="routes__key routes__key--road" data-i18n="sco.lRoad">Carretera</span>
+            <span class="routes__key routes__key--sea" data-i18n="sco.lSea">Marítim</span>
+            <span class="routes__key routes__key--rail" data-i18n="sco.lRail">Ferrocarril</span>
+            <span class="routes__key routes__key--remote" data-i18n="sco.lRemote">Operacions a El Salvador</span>
+          </figcaption>
+          <p class="routes__source" data-i18n="sco.source">Font: informació pública de Grupo Mazo.</p>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 3 · PREGUNTES DE DIAGNÒSTIC -->
+    <section class="slide" id="s-questions" aria-labelledby="s-questions-title" data-title="Abans de proposar-vos res" data-i18n-attr="data-title:toc.questions">
+      <div class="slide__inner">
+        <header class="slide__head slide__head--center">
+          <p class="eyebrow eyebrow--pill reveal d1"><i data-lucide="messages-square" aria-hidden="true"></i> <span data-i18n="sq.eyebrow">03 · Primer, escoltar-vos</span></p>
+          <h2 class="slide__title reveal d2" id="s-questions-title" tabindex="-1" data-i18n="sq.title">Abans de proposar-vos res, <span class="hl">volem conéixer-vos</span></h2>
+          <p class="slide__lead reveal d3" data-i18n="sq.lead">Quatre preguntes ràpides. Marqueu les respostes i us direm quin escenari encaixa millor amb Grupo Mazo.</p>
+        </header>
+
+        <div class="quiz reveal d4" data-no-swipe>
+          <fieldset class="q" data-q="it">
+            <legend><span class="q__num">1</span> <span data-i18n="sq.q1">Com gestioneu avui la informàtica?</span></legend>
+            <div class="q__opts">
+              <button type="button" class="opt" data-a="own" aria-pressed="false" data-i18n="sq.q1a">Equip propi</button>
+              <button type="button" class="opt" data-a="ext" aria-pressed="false" data-i18n="sq.q1b">Proveïdor extern</button>
+              <button type="button" class="opt" data-a="mix" aria-pressed="false" data-i18n="sq.q1c">Una mescla</button>
+            </div>
+          </fieldset>
+
+          <fieldset class="q" data-q="where">
+            <legend><span class="q__num">2</span> <span data-i18n="sq.q2">On són els sistemes principals (planificació, flota, facturació)?</span></legend>
+            <div class="q__opts">
+              <button type="button" class="opt" data-a="onprem" aria-pressed="false" data-i18n="sq.q2a">Servidors propis a Alzira</button>
+              <button type="button" class="opt" data-a="cloud" aria-pressed="false" data-i18n="sq.q2b">Ja al núvol</button>
+              <button type="button" class="opt" data-a="saas" aria-pressed="false" data-i18n="sq.q2c">Aplicacions contractades</button>
+            </div>
+          </fieldset>
+
+          <fieldset class="q" data-q="aws">
+            <legend><span class="q__num">3</span> <span data-i18n="sq.q3">Coneixeu o useu serveis al núvol com AWS?</span></legend>
+            <div class="q__opts">
+              <button type="button" class="opt" data-a="no" aria-pressed="false" data-i18n="sq.q3a">No els coneixem</button>
+              <button type="button" class="opt" data-a="know" aria-pressed="false" data-i18n="sq.q3b">Els coneixem, no els usem</button>
+              <button type="button" class="opt" data-a="use" aria-pressed="false" data-i18n="sq.q3c">Ja els usem</button>
+            </div>
+            <details class="q__help">
+              <summary data-i18n="sq.awsQ">Què és AWS?</summary>
+              <p data-i18n="sq.awsA">És el núvol d'Amazon: en lloc de comprar servidors, llogueu capacitat i serveis ja gestionats (bases de dades, còpies, recepció de dades de sensors) i pagueu només el que useu.</p>
+            </details>
+          </fieldset>
+
+          <fieldset class="q" data-q="goal" data-multi>
+            <legend><span class="q__num">4</span> <span data-i18n="sq.q4">Què us agradaria millorar? <small>(podeu marcar-ne diverses)</small></span></legend>
+            <div class="q__opts">
+              <button type="button" class="opt" data-a="cost" aria-pressed="false" data-i18n="sq.q4a">Costos</button>
+              <button type="button" class="opt" data-a="avail" aria-pressed="false" data-i18n="sq.q4b">Disponibilitat</button>
+              <button type="button" class="opt" data-a="branch" aria-pressed="false" data-i18n="sq.q4c">Connexió amb delegacions</button>
+              <button type="button" class="opt" data-a="data" aria-pressed="false" data-i18n="sq.q4d">Dades dels camions</button>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="quiz__result reveal d5">
+          <span class="quiz__icon"><i data-lucide="compass" aria-hidden="true"></i></span>
+          <div class="quiz__body">
+            <p class="quiz__kicker" data-i18n="sq.kicker">Escenari recomanat</p>
+            <p class="quiz__text" id="quizText" role="status" aria-live="polite"></p>
+          </div>
+          <button class="btn btn--primary btn--sm" type="button" id="quizGo" disabled>
+            <span data-i18n="sq.go">Veure l'escenari</span> <i data-lucide="arrow-right" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 · QUI SOM -->
+    <section class="slide" id="s-who" aria-labelledby="s-who-title" data-title="Qui som" data-i18n-attr="data-title:toc.2">
+      <div class="slide__inner who">
+        <div class="who__main">
+          <p class="eyebrow reveal d1"><i data-lucide="school" aria-hidden="true"></i> <span data-i18n="s2.eyebrow">04 · Qui som</span></p>
+          <h2 class="slide__title reveal d2" id="s-who-title" tabindex="-1">IES Lluís Simarro, <span class="hl">Xàtiva</span></h2>
+          <p class="slide__lead reveal d3" data-i18n="s2.lead">Centre públic de Formació Professional amb una oferta que va des de la FP Bàsica fins als cursos d'especialització, connectat amb el teixit empresarial de la comarca.</p>
+
+          <p class="excellence reveal d3">
+            <span class="excellence__icon"><i data-lucide="award" aria-hidden="true"></i></span>
+            <span>
+              <span class="excellence__kicker" data-i18n="s2.kicker">Reconeixement</span>
+              <strong class="excellence__title" data-i18n="s2.excellence">Centre d'Excel·lència en Intel·ligència Artificial i Big Data</strong>
+            </span>
+          </p>
+
+          <h3 class="who__subtitle reveal d4" data-i18n="s2.families">Famílies professionals</h3>
+          <ul class="families">
+            <li class="family reveal d4">
+              <span class="family__icon"><i data-lucide="monitor-cog" aria-hidden="true"></i></span>
+              <strong data-i18n="s2.f1">Informàtica i comunicacions</strong>
+              <span class="family__note" data-i18n="s2.f1n">Sistemes, desenvolupament, núvol, IA</span>
+            </li>
+            <li class="family reveal d5">
+              <span class="family__icon"><i data-lucide="briefcase-business" aria-hidden="true"></i></span>
+              <strong data-i18n="s2.f2">Administració i empresa</strong>
+              <span class="family__note" data-i18n="s2.f2n">Gestió administrativa i empresarial</span>
+            </li>
+            <li class="family reveal d6">
+              <span class="family__icon"><i data-lucide="chef-hat" aria-hidden="true"></i></span>
+              <strong data-i18n="s2.f3">Cuina</strong>
+              <span class="family__note" data-i18n="s2.f3n">Hoteleria i restauració</span>
+            </li>
+          </ul>
+        </div>
+
+        <figure class="ladder reveal d4" aria-labelledby="ladder-cap">
+          <figcaption class="ladder__cap" id="ladder-cap" data-i18n="s2.ladder">Itinerari formatiu complet</figcaption>
+          <ol class="ladder__bars">
+            <li class="ladder__bar ladder__bar--1"><span class="ladder__fill"></span><span class="ladder__label" data-i18n="s2.l1">FP Bàsica</span></li>
+            <li class="ladder__bar ladder__bar--2"><span class="ladder__fill"></span><span class="ladder__label" data-i18n="s2.l2">Grau Mitjà</span></li>
+            <li class="ladder__bar ladder__bar--3"><span class="ladder__fill"></span><span class="ladder__label" data-i18n="s2.l3">Grau Superior</span></li>
+            <li class="ladder__bar ladder__bar--4 is-highlight"><span class="ladder__fill"></span><span class="ladder__label" data-i18n="s2.l4">Curs d'Especia&shy;lització <em>Núvol</em></span></li>
+          </ol>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 5 · INFRAESTRUCTURA D'IA -->
+    <section class="slide" id="s-ai" aria-labelledby="s-ai-title" data-title="La nostra infraestructura d'IA" data-i18n-attr="data-title:toc.3">
+      <div class="slide__inner ai">
+        <div class="ai__text">
+          <p class="eyebrow reveal d1"><i data-lucide="cpu" aria-hidden="true"></i> <span data-i18n="s3.eyebrow">05 · Valor afegit</span></p>
+          <h2 class="slide__title reveal d2" id="s-ai-title" tabindex="-1" data-i18n="s3.title">Infraestructura d'IA pròpia, <span class="hl">en local</span></h2>
+          <p class="slide__lead reveal d3" data-i18n="s3.lead">Gràcies a una dotació d'1 milió d'euros del Ministeri, el departament d'Informàtica ha desplegat una infraestructura física local amb una eina d'IA pròpia basada en el model <strong>Qwen</strong>.</p>
+
+          <ul class="stats reveal d4" aria-label="Xifres clau" data-i18n-attr="aria-label:s3.statsLabel">
+            <li class="stat"><span class="stat__value">1 M€</span><span class="stat__label" data-i18n="s3.st1">d'inversió del Ministeri</span></li>
+            <li class="stat"><span class="stat__value">Qwen</span><span class="stat__label" data-i18n="s3.st2">model d'IA executat en local</span></li>
+            <li class="stat"><span class="stat__value" data-i18n="s3.st3v">On-prem + núvol</span><span class="stat__label" data-i18n="s3.st3">experiència en els dos entorns</span></li>
+          </ul>
+
+          <ul class="ai__points">
+            <li class="reveal d5"><i data-lucide="server" aria-hidden="true"></i><div data-i18n="s3.p1"><strong>Maquinari real al centre.</strong> L'alumnat administra infraestructura física, no només entorns simulats.</div></li>
+            <li class="reveal d5"><i data-lucide="shield-check" aria-hidden="true"></i><div data-i18n="s3.p2"><strong>IA privada.</strong> El model s'executa en les nostres instal·lacions, sense enviar dades a serveis externs.</div></li>
+            <li class="reveal d6"><i data-lucide="arrow-left-right" aria-hidden="true"></i><div data-i18n="s3.p3"><strong>Pont entre local i núvol.</strong> Coneixen els dos mons: el perfil ideal per a valorar una migració o un model híbrid.</div></li>
+          </ul>
+        </div>
+
+        <figure class="ai__visual reveal d3">
+          <div class="globe" data-no-swipe>
+            <canvas class="globe__canvas" id="aiGlobe" role="img" aria-label="Animació 3D d'una xarxa de nodes al voltant d'un nucli d'IA local, connectada amb serveis al núvol" data-i18n-attr="aria-label:s3.globeLabel"></canvas>
+          </div>
+          <figcaption class="globe__cap"><i data-lucide="move-3d" aria-hidden="true"></i> <span data-i18n="s3.globeCap">Arrossegueu per a girar el model</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 6 · EL REPTE -->
+    <section class="slide" id="s2" aria-labelledby="s2-title" data-title="El repte de la infraestructura actual" data-i18n-attr="data-title:s4.title">
+      <div class="slide__inner">
+        <header class="slide__head">
+          <p class="eyebrow reveal d1"><i data-lucide="server-cog" aria-hidden="true"></i> <span data-i18n="s4.eyebrow">06 · El vostre context</span></p>
+          <h2 class="slide__title reveal d2" id="s2-title" tabindex="-1" data-i18n="s4.title">El repte tecnològic d'una logística a temperatura controlada</h2>
+          <p class="slide__lead reveal d3" data-i18n="s4.lead">En el producte fresc, cada minut i cada grau compten. Aquests són els reptes habituals d'una operació com la vostra quan tota la infraestructura és física.</p>
+        </header>
+
+        <div class="compare">
+          <article class="compare__col compare__col--legacy reveal d3" aria-labelledby="cmp-legacy">
+            <h3 class="compare__title" id="cmp-legacy">
+              <span class="compare__icon"><i data-lucide="building-2" aria-hidden="true"></i></span>
+              <span data-i18n="s4.legacy">Només infraestructura física</span> <span class="tag tag--muted">on-premise</span>
+            </h3>
+            <ul class="compare__list">
+              <li><i data-lucide="lock" aria-hidden="true"></i><div data-i18n="s4.l1"><strong>Pics de campanya.</strong> Les temporades de fruita i verdura obliguen a dimensionar els servidors per al màxim tot l'any.</div></li>
+              <li><i data-lucide="wallet" aria-hidden="true"></i><div data-i18n="s4.l2"><strong>Telemetria en creixement.</strong> GPS i temperatura de més de 1.000 vehicles generen dades sense parar.</div></li>
+              <li><i data-lucide="wrench" aria-hidden="true"></i><div data-i18n="s4.l3"><strong>Seus disperses.</strong> Delegacions a Cadis, Canàries, Alemanya i El Salvador depenen d'un centre de dades central.</div></li>
+              <li><i data-lucide="life-buoy" aria-hidden="true"></i><div data-i18n="s4.l4"><strong>Servei 24/365.</strong> Una avaria o un manteniment al CPD pot afectar tota l'operativa.</div></li>
+            </ul>
+          </article>
+
+          <div class="compare__arrow reveal d4" aria-hidden="true">
+            <span><i data-lucide="arrow-right-left"></i></span>
+          </div>
+
+          <article class="compare__col compare__col--cloud reveal d5" aria-labelledby="cmp-cloud">
+            <h3 class="compare__title" id="cmp-cloud">
+              <span class="compare__icon"><i data-lucide="cloud" aria-hidden="true"></i></span>
+              <span data-i18n="s4.cloud">Model al núvol o híbrid</span> <span class="tag">cloud</span>
+            </h3>
+            <ul class="compare__list">
+              <li><i data-lucide="gauge" aria-hidden="true"></i><div data-i18n="s4.c1"><strong>Elasticitat en campanya.</strong> Més capacitat quan hi ha més càrregues i menys quan baixa l'activitat.</div></li>
+              <li><i data-lucide="piggy-bank" aria-hidden="true"></i><div data-i18n="s4.c2"><strong>Dades IoT administrades.</strong> Serveis preparats per a rebre i analitzar dades de sensors en temps real.</div></li>
+              <li><i data-lucide="layers" aria-hidden="true"></i><div data-i18n="s4.c3"><strong>Xarxa híbrida global.</strong> Seu, delegacions i núvol connectats de manera segura.</div></li>
+              <li><i data-lucide="shield-check" aria-hidden="true"></i><div data-i18n="s4.c4"><strong>Alta disponibilitat.</strong> Diverses zones i còpies en una altra regió perquè el servei no s'ature.</div></li>
+            </ul>
+          </article>
+        </div>
+
+        <p class="callout reveal d6">
+          <i data-lucide="lightbulb" aria-hidden="true"></i>
+          <span data-i18n="s4.callout">La pregunta no és <em>si</em> migrar, sinó <strong>què, quan i com</strong>. Ací és on aporta valor el nostre alumnat.</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- 7 · COMPETÈNCIES -->
+    <section class="slide" id="s3" aria-labelledby="s3-title" data-title="Competències clau del nostre alumnat" data-i18n-attr="data-title:s5.title">
+      <div class="slide__inner">
+        <header class="slide__head slide__head--row">
+          <div>
+            <p class="eyebrow reveal d1"><i data-lucide="graduation-cap" aria-hidden="true"></i> <span data-i18n="s5.eyebrow">07 · Competències oficials del títol</span></p>
+            <h2 class="slide__title reveal d2" id="s3-title" tabindex="-1" data-i18n="s5.title">Competències clau del nostre alumnat</h2>
+            <p class="slide__lead reveal d3" data-i18n="s5.lead">Toqueu cada bloc per a veure què pot aportar a la vostra empresa.</p>
+          </div>
+          <button class="btn btn--ghost reveal d3" type="button" id="toggleAllCards" aria-pressed="false">
+            <i data-lucide="chevrons-up-down" aria-hidden="true"></i>
+            <span class="js-toggle-label">Desplegar-ho tot</span>
+          </button>
+        </header>
+
+        <div class="cards">
+          <article class="card reveal d3">
+            <h3 class="card__heading">
+              <button class="card__toggle" type="button" aria-expanded="false" aria-controls="card-1-panel" id="card-1-btn">
+                <span class="card__icon"><i data-lucide="network" aria-hidden="true"></i></span>
+                <span class="card__titles">
+                  <span class="card__title" data-i18n="s5.c1t">Arquitectura i serveis administrats</span>
+                  <span class="card__tagline" data-i18n="s5.c1g">Solucions ben dissenyades des del primer dia</span>
+                </span>
+                <span class="card__badge" aria-label="Competències g i h" data-i18n-attr="aria-label:s5.c1b">g · h</span>
+                <i data-lucide="chevron-down" class="card__chevron" aria-hidden="true"></i>
+              </button>
+            </h3>
+            <div class="card__panel" id="card-1-panel" role="region" aria-labelledby="card-1-btn">
+              <div class="card__panel-inner">
+                <p data-i18n="s5.c1p">Disseny de solucions de còmput, emmagatzematge, xarxes i bases de dades sota els pilars de <strong>resiliència, seguretat, rendiment i optimització de costos</strong>.</p>
+                <p class="card__value"><i data-lucide="trending-up" aria-hidden="true"></i> <span data-i18n="s5.c1v">Menys càrrega operativa gràcies als serveis administrats.</span></p>
+              </div>
+            </div>
+          </article>
+
+          <article class="card reveal d4">
+            <h3 class="card__heading">
+              <button class="card__toggle" type="button" aria-expanded="false" aria-controls="card-2-panel" id="card-2-btn">
+                <span class="card__icon"><i data-lucide="shield-check" aria-hidden="true"></i></span>
+                <span class="card__titles">
+                  <span class="card__title" data-i18n="s5.c2t">Xarxes híbrides i seguretat</span>
+                  <span class="card__tagline" data-i18n="s5.c2g">Connectar el que teniu amb el núvol, amb garanties</span>
+                </span>
+                <span class="card__badge" aria-label="Competències a, b i d" data-i18n-attr="aria-label:s5.c2b">a · b · d</span>
+                <i data-lucide="chevron-down" class="card__chevron" aria-hidden="true"></i>
+              </button>
+            </h3>
+            <div class="card__panel" id="card-2-panel" role="region" aria-labelledby="card-2-btn">
+              <div class="card__panel-inner">
+                <p data-i18n="s5.c2p">Desplegament i administració de xarxes que connecten recursos <em>cloud</em> amb entorns <em>on-premises</em> o multinúvol, amb <strong>privacitat i alta disponibilitat</strong>.</p>
+                <p class="card__value"><i data-lucide="key-round" aria-hidden="true"></i> <span data-i18n="s5.c2v">Gestió de jerarquies, identitats i controls d'accés (autenticació i autorització).</span></p>
+              </div>
+            </div>
+          </article>
+
+          <article class="card reveal d5">
+            <h3 class="card__heading">
+              <button class="card__toggle" type="button" aria-expanded="false" aria-controls="card-3-panel" id="card-3-btn">
+                <span class="card__icon"><i data-lucide="workflow" aria-hidden="true"></i></span>
+                <span class="card__titles">
+                  <span class="card__title" data-i18n="s5.c3t">Automatització, monitoratge i control de costos</span>
+                  <span class="card__tagline" data-i18n="s5.c3g">Infraestructura reproduïble i despesa sota control</span>
+                </span>
+                <span class="card__badge" aria-label="Competències c, e i f" data-i18n-attr="aria-label:s5.c3b">c · e · f</span>
+                <i data-lucide="chevron-down" class="card__chevron" aria-hidden="true"></i>
+              </button>
+            </h3>
+            <div class="card__panel" id="card-3-panel" role="region" aria-labelledby="card-3-btn">
+              <div class="card__panel-inner">
+                <p data-i18n="s5.c3p">Desplegament automatitzat amb <strong>Infraestructura com a Codi (IaC)</strong> i monitoratge proactiu per a detectar oportunitats de millora.</p>
+                <p class="card__value"><i data-lucide="calculator" aria-hidden="true"></i> <span data-i18n="s5.c3v">Facturació per centres de despesa amb predicció de costos futurs.</span></p>
+              </div>
+            </div>
+          </article>
+
+          <article class="card reveal d6">
+            <h3 class="card__heading">
+              <button class="card__toggle" type="button" aria-expanded="false" aria-controls="card-4-panel" id="card-4-btn">
+                <span class="card__icon"><i data-lucide="users" aria-hidden="true"></i></span>
+                <span class="card__titles">
+                  <span class="card__title" data-i18n="s5.c4t">Perfil professional i qualitat</span>
+                  <span class="card__tagline" data-i18n="s5.c4g">Tècnics que s'integren en el vostre equip</span>
+                </span>
+                <span class="card__badge" aria-label="Competències de la i a la ñ" data-i18n-attr="aria-label:s5.c4b">i – ñ</span>
+                <i data-lucide="chevron-down" class="card__chevron" aria-hidden="true"></i>
+              </button>
+            </h3>
+            <div class="card__panel" id="card-4-panel" role="region" aria-labelledby="card-4-btn">
+              <div class="card__panel-inner">
+                <p data-i18n="s5.c4p"><strong>Autonomia, iniciativa i treball en equip</strong>, amb comunicació eficaç i capacitat d'adaptació al canvi tecnològic.</p>
+                <p class="card__value"><i data-lucide="clipboard-check" aria-hidden="true"></i> <span data-i18n="s5.c4v">Compliment normatiu: qualitat, accessibilitat i prevenció de riscos.</span></p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8 · ESCENARIS -->
+    <section class="slide" id="s4" aria-labelledby="s4-title" data-title="Què pot fer l'alumne a la vostra empresa?" data-i18n-attr="data-title:s6.title">
+      <div class="slide__inner">
+        <header class="slide__head slide__head--center">
+          <p class="eyebrow eyebrow--pill reveal d1"><i data-lucide="sliders-horizontal" aria-hidden="true"></i> <span data-i18n="s6.eyebrow">08 · Aplicació pràctica a Grupo Mazo</span></p>
+          <h2 class="slide__title reveal d2" id="s4-title" tabindex="-1" data-i18n="s6.title">Què pot fer l'alumne a Grupo Mazo?</h2>
+          <p class="slide__lead reveal d3" data-i18n="s6.lead">Tres escenaris pensats per a la vostra operativa, amb el diagrama d'arquitectura i els lliurables tècnics concrets.</p>
+        </header>
+
+        <div class="scenarios reveal d4" data-tabs>
+          <div class="pills" role="tablist" aria-label="Escenaris d'empresa" data-i18n-attr="aria-label:s6.tablist" data-no-swipe>
+            <button class="pill" type="button" role="tab" id="tab-a" aria-controls="panel-a" aria-selected="true">
+              <i data-lucide="cloud-upload" aria-hidden="true"></i> <span data-i18n="s6.ta">A. Migració al núvol</span>
+            </button>
+            <button class="pill" type="button" role="tab" id="tab-b" aria-controls="panel-b" aria-selected="false" tabindex="-1">
+              <i data-lucide="building-2" aria-hidden="true"></i> <span data-i18n="s6.tb">B. Seu i delegacions en xarxa</span>
+            </button>
+            <button class="pill" type="button" role="tab" id="tab-c" aria-controls="panel-c" aria-selected="false" tabindex="-1">
+              <i data-lucide="thermometer-snowflake" aria-hidden="true"></i> <span data-i18n="s6.tc">C. Dades de la cadena de fred</span>
+            </button>
+          </div>
+
+          <!-- Escenari A -->
+          <div class="tabpanel scenario" role="tabpanel" id="panel-a" aria-labelledby="tab-a" tabindex="0">
+            <div class="scenario__head">
+              <div>
+                <p class="scenario__kicker" data-i18n="s6.a.kicker">Escenari A · Transició al núvol</p>
+                <h3 class="scenario__title" data-i18n="s6.a.title">Valoració de migració al núvol públic</h3>
+              </div>
+              <p class="scenario__ideal" data-i18n="s6.a.ideal">Per a valorar amb dades reals quins sistemes de la seu d'Alzira (per exemple, planificació, gestió de flota o facturació) convé portar al núvol i amb quin cost.</p>
+            </div>
+            <ol class="flow" aria-label="Diagrama d'arquitectura" data-i18n-attr="aria-label:s6.flowLabel">
+              <li class="flow__node flow__node--legacy"><strong data-i18n="s6.a.n1">Sistemes de la seu</strong><span data-i18n="s6.a.n1s">Inventari on-premise</span></li>
+              <li class="flow__arrow" aria-hidden="true"></li>
+              <li class="flow__node flow__node--process"><strong data-i18n="s6.a.n2">Anàlisi TCO i PoC</strong><span data-i18n="s6.a.n2s">Simulació de costos</span></li>
+              <li class="flow__arrow" aria-hidden="true"></li>
+              <li class="flow__node flow__node--cloud"><strong data-i18n="s6.a.n3">Núvol elàstic</strong><span data-i18n="s6.a.n3s">Serveis administrats</span></li>
+            </ol>
+            <ul class="actions">
+              <li class="action">
+                <div class="action__head"><span class="action__icon"><i data-lucide="clipboard-list" aria-hidden="true"></i></span><strong data-i18n="s6.a.1t">Inventari i auditoria</strong></div>
+                <p data-i18n="s6.a.1">Catalogació de les càrregues de treball físiques actuals (CPU, RAM, emmagatzematge i dependències).</p>
+              </li>
+              <li class="action">
+                <div class="action__head"><span class="action__icon"><i data-lucide="calculator" aria-hidden="true"></i></span><strong data-i18n="s6.a.2t">Estudi de costos (TCO)</strong></div>
+                <p data-i18n="s6.a.2">Simulació de la facturació mensual per centres de despesa i predicció del consum a mitjà termini.</p>
+              </li>
+              <li class="action">
+                <div class="action__head"><span class="action__icon"><i data-lucide="flask-conical" aria-hidden="true"></i></span><strong data-i18n="s6.a.3t">Prova de concepte (PoC)</strong></div>
+                <p data-i18n="s6.a.3">Desplegament pilot d'una aplicació o base de dades amb serveis administrats.</p>
+              </li>
+            </ul>
+            <p class="deliverable"><i data-lucide="file-check" aria-hidden="true"></i><span data-i18n="s6.a.d"><strong>Lliurable:</strong> informe de viabilitat amb inventari, previsió de costos i resultats del pilot.</span></p>
+          </div>
+
+          <!-- Escenari B -->
+          <div class="tabpanel scenario" role="tabpanel" id="panel-b" aria-labelledby="tab-b" tabindex="0" hidden>
+            <div class="scenario__head">
+              <div>
+                <p class="scenario__kicker" data-i18n="s6.b.kicker">Escenari B · Seu + delegacions + núvol</p>
+                <h3 class="scenario__title" data-i18n="s6.b.title">Xarxa híbrida per a seu i delegacions</h3>
+              </div>
+              <p class="scenario__ideal" data-i18n="s6.b.ideal">Per a connectar de manera segura la seu d'Alzira amb les delegacions (Cadis, Canàries, Alemanya, El Salvador) i el núvol, amb identitats i còpies centralitzades.</p>
+            </div>
+            <ol class="flow" aria-label="Diagrama d'arquitectura" data-i18n-attr="aria-label:s6.flowLabel">
+              <li class="flow__node flow__node--legacy"><strong data-i18n="s6.b.n1">Seu d'Alzira</strong><span data-i18n="s6.b.n1s">Servidors i directori</span></li>
+              <li class="flow__arrow flow__arrow--both" aria-hidden="true"><span class="flow__head-left"></span></li>
+              <li class="flow__node flow__node--process"><strong data-i18n="s6.b.n2">VPN xifrada</strong><span data-i18n="s6.b.n2s">Delegacions connectades</span></li>
+              <li class="flow__arrow flow__arrow--both" aria-hidden="true"><span class="flow__head-left"></span></li>
+              <li class="flow__node flow__node--cloud"><strong data-i18n="s6.b.n3">Xarxa privada al núvol</strong><span data-i18n="s6.b.n3s">Identitat unificada</span></li>
+            </ol>
+            <ul class="actions">
+              <li class="action">
+                <div class="action__head"><span class="action__icon"><i data-lucide="cable" aria-hidden="true"></i></span><strong data-i18n="s6.b.1t">Interconnexió segura</strong></div>
+                <p data-i18n="s6.b.1">Enllaç xifrat entre els servidors locals i el núvol, amb segmentació de xarxa privada.</p>
+              </li>
+              <li class="action">
+                <div class="action__head"><span class="action__icon"><i data-lucide="fingerprint" aria-hidden="true"></i></span><strong data-i18n="s6.b.2t">Identitats i accessos</strong></div>
+                <p data-i18n="s6.b.2">Rols, mínim privilegi i autenticació multifactor gestionats des d'un únic punt.</p>
+              </li>
+              <li class="action">
+                <div class="action__head"><span class="action__icon"><i data-lucide="hard-drive-download" aria-hidden="true"></i></span><strong data-i18n="s6.b.3t">Còpies i alta disponibilitat</strong></div>
+                <p data-i18n="s6.b.3">Còpies al núvol, replicació i pla de recuperació davant incidents.</p>
+              </li>
+            </ul>
+            <p class="deliverable"><i data-lucide="file-check" aria-hidden="true"></i><span data-i18n="s6.b.d"><strong>Lliurable:</strong> disseny d'arquitectura híbrida i entorn de proves funcional.</span></p>
+          </div>
+
+          <!-- Escenari C -->
+          <div class="tabpanel scenario" role="tabpanel" id="panel-c" aria-labelledby="tab-c" tabindex="0" hidden>
+            <div class="scenario__head">
+              <div>
+                <p class="scenario__kicker" data-i18n="s6.c.kicker">Escenari C · Cadena de fred connectada</p>
+                <h3 class="scenario__title" data-i18n="s6.c.title">Telemetria de la flota en temps real</h3>
+              </div>
+              <p class="scenario__ideal" data-i18n="s6.c.ideal">Per a centralitzar al núvol les dades de GPS i temperatura dels vehicles, amb panells i alertes que ajuden a garantir la cadena de fred i la traçabilitat.</p>
+            </div>
+            <ol class="flow" aria-label="Diagrama d'arquitectura" data-i18n-attr="aria-label:s6.flowLabel">
+              <li class="flow__node flow__node--process"><strong data-i18n="s6.c.n1">Sensors a bord</strong><span data-i18n="s6.c.n1s">GPS i temperatura</span></li>
+              <li class="flow__arrow" aria-hidden="true"></li>
+              <li class="flow__node flow__node--cloud"><strong data-i18n="s6.c.n2">Ingesta al núvol</strong><span data-i18n="s6.c.n2s">Serveis IoT administrats</span></li>
+              <li class="flow__arrow" aria-hidden="true"></li>
+              <li class="flow__node flow__node--legacy"><strong data-i18n="s6.c.n3">Panell i alertes</strong><span data-i18n="s6.c.n3s">Temperatura fora de rang</span></li>
+              <li class="flow__loop" aria-hidden="true"><i data-lucide="refresh-cw"></i> <span data-i18n="s6.c.loop">Històric per a auditories</span></li>
+            </ol>
+            <ul class="actions">
+              <li class="action">
+                <div class="action__head"><span class="action__icon"><i data-lucide="radio-tower" aria-hidden="true"></i></span><strong data-i18n="s6.c.1t">Canalització de dades</strong></div>
+                <p data-i18n="s6.c.1">Recepció de la telemetria dels vehicles i emmagatzematge en una base de dades administrada al núvol.</p>
+              </li>
+              <li class="action">
+                <div class="action__head"><span class="action__icon"><i data-lucide="map" aria-hidden="true"></i></span><strong data-i18n="s6.c.2t">Panell en temps real</strong></div>
+                <p data-i18n="s6.c.2">Mapa de flota, temperatures i alertes, accessible des de la seu i des de qualsevol delegació.</p>
+              </li>
+              <li class="action">
+                <div class="action__head"><span class="action__icon"><i data-lucide="file-code-2" aria-hidden="true"></i></span><strong data-i18n="s6.c.3t">Automatització amb IaC</strong></div>
+                <p data-i18n="s6.c.3">Infraestructura definida com a codi per a replicar l'entorn i controlar-ne el cost.</p>
+              </li>
+            </ul>
+            <p class="deliverable"><i data-lucide="file-check" aria-hidden="true"></i><span data-i18n="s6.c.d"><strong>Lliurable:</strong> prototip funcional de panell de telemetria amb alertes i informe de costos.</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9 · SIMULACIÓ 3D -->
+    <section class="slide" id="s-sim3d" aria-labelledby="s-sim3d-title" data-title="Simulació 3D: físic o núvol" data-i18n-attr="data-title:toc.7">
+      <div class="slide__inner">
+        <header class="slide__head slide__head--center">
+          <p class="eyebrow eyebrow--pill reveal d1"><i data-lucide="box" aria-hidden="true"></i> <span data-i18n="s7b.eyebrow">09 · Simulació 3D</span></p>
+          <h2 class="slide__title reveal d2" id="s-sim3d-title" tabindex="-1" data-i18n="s7b.title">Què suposa tindre la infraestructura <span class="hl">al núvol</span>?</h2>
+          <p class="slide__lead reveal d3" data-i18n="s7b.lead">Simuleu una campanya de fruita, provoqueu una avaria i compareu com respon un CPD propi i una infraestructura al núvol.</p>
+        </header>
+
+        <div class="sim3d reveal d4">
+          <div class="sim3d__stage" data-no-swipe>
+            <canvas class="sim3d__canvas" id="cloudSim" role="img" aria-label="Escena 3D interactiva que compara servidors físics amb instàncies al núvol" data-i18n-attr="aria-label:s7b.canvasLabel"></canvas>
+            <p class="sim3d__hint"><i data-lucide="move-3d" aria-hidden="true"></i> <span data-i18n="s7b.drag">Arrossegueu per a girar l'escena</span></p>
+            <p class="sim3d__note" data-i18n="s7b.note">Simulació il·lustrativa. Percentatges respecte a la capacitat del CPD propi.</p>
+          </div>
+
+          <div class="sim3d__panel" data-no-swipe>
+            <div class="segmented" role="group" aria-label="Tipus d'infraestructura" data-i18n-attr="aria-label:s7b.modeLabel">
+              <button type="button" data-mode="onprem" aria-pressed="true"><i data-lucide="server" aria-hidden="true"></i> <span data-i18n="s7b.onprem">CPD propi</span></button>
+              <button type="button" data-mode="cloud" aria-pressed="false"><i data-lucide="cloud" aria-hidden="true"></i> <span data-i18n="s7b.cloud">Al núvol</span></button>
+            </div>
+
+            <label class="range" for="demandRange">
+              <span class="range__top"><span data-i18n="s7b.demand">Volum d'operacions</span> <output id="demandOut" for="demandRange">60%</output></span>
+              <input type="range" id="demandRange" min="10" max="150" step="1" value="60">
+              <span class="range__scale" aria-hidden="true"><span>10%</span><span>100%</span><span>150%</span></span>
+            </label>
+
+            <div class="sim3d__actions">
+              <button class="btn btn--ghost btn--sm" type="button" id="simPeak"><i data-lucide="trending-up" aria-hidden="true"></i> <span data-i18n="s7b.peak">Simular una campanya</span></button>
+              <button class="btn btn--ghost btn--sm" type="button" id="simFail" aria-pressed="false"><i data-lucide="zap-off" aria-hidden="true"></i> <span data-i18n="s7b.fail">Simular una avaria</span></button>
+            </div>
+
+            <dl class="metrics">
+              <div class="metric"><dt data-i18n="s7b.mCap">Capacitat</dt><dd id="mCap">–</dd></div>
+              <div class="metric"><dt data-i18n="s7b.mIdle">Capacitat ociosa</dt><dd id="mIdle">–</dd></div>
+              <div class="metric metric--alert"><dt data-i18n="s7b.mLost">Demanda no atesa</dt><dd id="mLost">–</dd></div>
+              <div class="metric"><dt data-i18n="s7b.mCost">Cost</dt><dd id="mCost">–</dd></div>
+            </dl>
+
+            <p class="sim3d__status" id="simStatus" role="status" aria-live="polite"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10 · ESCENARI ECONÒMIC FICTICI -->
+    <section class="slide" id="s-savings" aria-labelledby="s-savings-title" data-title="Escenari fictici: CPD local o núvol" data-i18n-attr="data-title:toc.savings">
+      <div class="slide__inner">
+        <header class="slide__head slide__head--center">
+          <p class="eyebrow eyebrow--pill reveal d1"><i data-lucide="piggy-bank" aria-hidden="true"></i> <span data-i18n="ss.eyebrow">10 · Escenari fictici</span></p>
+          <h2 class="slide__title reveal d2" id="s-savings-title" tabindex="-1" data-i18n="ss.title">CPD local o núvol: <span class="hl">què costa en 5 anys?</span></h2>
+          <p class="slide__lead reveal d3" data-i18n="ss.lead">Exemple il·lustratiu amb xifres fictícies per a una transportista amb campanyes de 5 mesos. L'estalvi depén de com es dissenye la solució.</p>
+        </header>
+
+        <div class="tco reveal d4">
+          <div class="tco__main">
+            <div class="segmented segmented--3" role="group" aria-label="Pla de migració" data-i18n-attr="aria-label:ss.planLabel" data-no-swipe>
+              <button type="button" data-plan="lift" aria-pressed="true" data-i18n="ss.p1">Migració directa</button>
+              <button type="button" data-plan="tuned" aria-pressed="false" data-i18n="ss.p2">Núvol ajustat</button>
+              <button type="button" data-plan="optimized" aria-pressed="false" data-i18n="ss.p3">Núvol optimitzat</button>
+            </div>
+            <figure class="tco__figure">
+              <svg class="tco__svg" id="tcoChart" viewBox="0 0 640 300" role="img" aria-labelledby="tcoChartDesc" focusable="false"></svg>
+              <figcaption class="tco__legend">
+                <span class="tco__key tco__key--onprem" data-i18n="ss.kOnprem">CPD local</span>
+                <span class="tco__key tco__key--cloud" data-i18n="ss.kCloud">Núvol</span>
+                <span class="sr-only" id="tcoChartDesc"></span>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="tco__side">
+            <dl class="metrics">
+              <div class="metric"><dt data-i18n="ss.mOnprem">CPD local · 5 anys</dt><dd id="tcoOnprem">–</dd></div>
+              <div class="metric"><dt data-i18n="ss.mCloud">Núvol · 5 anys</dt><dd id="tcoCloud">–</dd></div>
+              <div class="metric metric--wide" id="tcoDiffBox"><dt data-i18n="ss.mDiff">Diferència</dt><dd id="tcoDiff">–</dd></div>
+            </dl>
+            <p class="sim3d__status" id="tcoMsg" role="status" aria-live="polite"></p>
+            <details class="tco__assumptions" data-no-swipe>
+              <summary data-i18n="ss.assume">Veure els supòsits</summary>
+              <table class="tco__table">
+                <thead><tr><th scope="col" data-i18n="ss.tConcept">Concepte</th><th scope="col" data-i18n="ss.kOnprem">CPD local</th><th scope="col" data-i18n="ss.kCloud">Núvol</th></tr></thead>
+                <tbody id="tcoRows"></tbody>
+              </table>
+            </details>
+            <p class="tco__note" data-i18n="ss.note">Xifres fictícies amb finalitat divulgativa. No són un pressupost.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11 · COL·LABORACIÓ -->
+    <section class="slide" id="s5" aria-labelledby="s5-title" data-title="Com funciona la col·laboració" data-i18n-attr="data-title:toc.8">
+      <div class="slide__inner">
+        <header class="slide__head">
+          <p class="eyebrow reveal d1"><i data-lucide="route" aria-hidden="true"></i> <span data-i18n="s7.eyebrow">11 · Procés</span></p>
+          <h2 class="slide__title reveal d2" id="s5-title" tabindex="-1" data-i18n="s7.title">Com funcionaria la col·laboració amb Grupo Mazo</h2>
+          <p class="slide__lead reveal d3" data-i18n="s7.lead">Quatre passos senzills, amb acompanyament del centre en tot moment.</p>
+        </header>
+
+        <div class="timeline reveal d4" data-tabs>
+          <ol class="timeline__steps" role="tablist" aria-label="Passos de la col·laboració" data-i18n-attr="aria-label:s7.tablist" data-no-swipe>
+            <li class="timeline__item">
+              <button class="step" type="button" role="tab" id="step-1" aria-controls="step-1-panel" aria-selected="true">
+                <span class="step__dot"><i data-lucide="search" aria-hidden="true"></i></span>
+                <span class="step__num" data-i18n="s7.n1">Pas 1</span>
+                <span class="step__label" data-i18n="s7.t1">Detecció de necessitats</span>
+              </button>
+            </li>
+            <li class="timeline__item">
+              <button class="step" type="button" role="tab" id="step-2" aria-controls="step-2-panel" aria-selected="false" tabindex="-1">
+                <span class="step__dot"><i data-lucide="user-check" aria-hidden="true"></i></span>
+                <span class="step__num" data-i18n="s7.n2">Pas 2</span>
+                <span class="step__label" data-i18n="s7.t2">Assignació del perfil</span>
+              </button>
+            </li>
+            <li class="timeline__item">
+              <button class="step" type="button" role="tab" id="step-3" aria-controls="step-3-panel" aria-selected="false" tabindex="-1">
+                <span class="step__dot"><i data-lucide="users-round" aria-hidden="true"></i></span>
+                <span class="step__num" data-i18n="s7.n3">Pas 3</span>
+                <span class="step__label" data-i18n="s7.t3">Desenvolupament i tutorització</span>
+              </button>
+            </li>
+            <li class="timeline__item">
+              <button class="step" type="button" role="tab" id="step-4" aria-controls="step-4-panel" aria-selected="false" tabindex="-1">
+                <span class="step__dot"><i data-lucide="file-check-2" aria-hidden="true"></i></span>
+                <span class="step__num" data-i18n="s7.n4">Pas 4</span>
+                <span class="step__label" data-i18n="s7.t4">Resultats i valoració</span>
+              </button>
+            </li>
+          </ol>
+
+          <div class="timeline__detail">
+            <div class="tabpanel step-panel" role="tabpanel" id="step-1-panel" aria-labelledby="step-1" tabindex="0">
+              <h3 data-i18n="s7.d1t">Detecció de necessitats</h3>
+              <p data-i18n="s7.d1">Grupo Mazo planteja un repte real o una prova de concepte: per exemple, un panell de temperatura de la flota o la connexió segura de les delegacions. Junts definim l'abast, els objectius i l'entorn de treball.</p>
+            </div>
+            <div class="tabpanel step-panel" role="tabpanel" id="step-2-panel" aria-labelledby="step-2" tabindex="0" hidden>
+              <h3 data-i18n="s7.d2t">Assignació del perfil</h3>
+              <p data-i18n="s7.d2">El centre selecciona l'alumne o alumna amb el perfil més adequat al repte plantejat i a les característiques de l'empresa.</p>
+            </div>
+            <div class="tabpanel step-panel" role="tabpanel" id="step-3-panel" aria-labelledby="step-3" tabindex="0" hidden>
+              <h3 data-i18n="s7.d3t">Desenvolupament i tutorització conjunta</h3>
+              <p data-i18n="s7.d3">Durant el període de <strong>maig a juny</strong>, l'alumnat treballa en l'empresa amb seguiment periòdic entre la persona tutora d'empresa i el professorat especialista del curs.</p>
+            </div>
+            <div class="tabpanel step-panel" role="tabpanel" id="step-4-panel" aria-labelledby="step-4" tabindex="0" hidden>
+              <h3 data-i18n="s7.d4t">Resultats i valoració</h3>
+              <p data-i18n="s7.d4">Lliurament d'un <strong>informe tècnic o prototip funcional</strong> que servisca a l'empresa per a prendre decisions, amb una valoració conjunta final.</p>
+            </div>
+          </div>
+        </div>
+
+        <ul class="facts reveal d5">
+          <li><i data-lucide="calendar-days" aria-hidden="true"></i><span data-i18n="s7.f1"><strong>Període:</strong> maig–juny</span></li>
+          <li><i data-lucide="user-round-cog" aria-hidden="true"></i><span data-i18n="s7.f2"><strong>Tutorització dual:</strong> empresa + centre</span></li>
+          <li><i data-lucide="target" aria-hidden="true"></i><span data-i18n="s7.f3"><strong>Reptes reals</strong> del vostre entorn</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 12 · CTA I CONTACTE -->
+    <section class="slide slide--cta" id="s6" aria-labelledby="s6-title" data-title="Contacte" data-i18n-attr="data-title:toc.9">
+      <div class="slide__inner cta">
+        <div class="cta__text">
+          <p class="eyebrow reveal d1"><i data-lucide="rocket" aria-hidden="true"></i> <span data-i18n="s8.eyebrow">12 · Fem el pas junts</span></p>
+          <h2 class="slide__title reveal d2" id="s6-title" tabindex="-1" data-i18n="s8.title">Acolliu talent <span class="hl">cloud</span> a Grupo Mazo</h2>
+
+          <ul class="benefits">
+            <li class="benefit reveal d3">
+              <span class="benefit__icon"><i data-lucide="sparkles" aria-hidden="true"></i></span>
+              <div data-i18n="s8.b1"><strong>Talent especialitzat</strong><p>Perfils formats en arquitectura, xarxes, automatització i costos al núvol.</p></div>
+            </li>
+            <li class="benefit reveal d4">
+              <span class="benefit__icon"><i data-lucide="scale" aria-hidden="true"></i></span>
+              <div data-i18n="s8.b2"><strong>Anàlisi sense compromís</strong><p>Valoreu migració, xarxa híbrida o telemetria sense una inversió immediata.</p></div>
+            </li>
+            <li class="benefit reveal d5">
+              <span class="benefit__icon"><i data-lucide="map-pin" aria-hidden="true"></i></span>
+              <div data-i18n="s8.b3"><strong>Proximitat</strong><p>Som a Xàtiva, molt a prop de la vostra seu d'Alzira: el seguiment presencial és fàcil.</p></div>
+            </li>
+          </ul>
+        </div>
+
+        <aside class="contact reveal d4" aria-labelledby="contact-title">
+          <p class="contact__kicker" data-i18n="s8.kicker">Contacte directe</p>
+          <h3 class="contact__title" id="contact-title">IES Lluís Simarro</h3>
+          <p class="contact__sub" data-i18n="s8.course">Curs d'Especialització en Recursos i Serveis en el Núvol</p>
+
+          <dl class="contact__data">
+            <div>
+              <dt><i data-lucide="mail" aria-hidden="true"></i> <span data-i18n="s8.email">Correu</span></dt>
+              <dd><a class="contact__email" id="contactEmail" href="mailto:a.llorensboixader@edu.gva.es">a.llorensboixader@edu.gva.es</a></dd>
+            </div>
+            <div>
+              <dt><i data-lucide="calendar-days" aria-hidden="true"></i> <span data-i18n="s8.period">Formació en empresa</span></dt>
+              <dd data-i18n="s8.periodV">Maig – juny</dd>
+            </div>
+            <div>
+              <dt><i data-lucide="map-pin" aria-hidden="true"></i> <span data-i18n="s8.place">Ubicació</span></dt>
+              <dd>Xàtiva (València)</dd>
+            </div>
+          </dl>
+
+          <div class="contact__actions">
+            <button class="btn btn--primary btn--copy" type="button" id="copyEmail" data-email="a.llorensboixader@edu.gva.es" aria-describedby="copyStatus">
+              <span class="btn--copy__idle"><i data-lucide="copy" aria-hidden="true"></i> <span data-i18n="s8.copy">Copiar el correu</span></span>
+              <span class="btn--copy__done"><i data-lucide="check" aria-hidden="true"></i> <span data-i18n="s8.copied">Correu copiat!</span></span>
+            </button>
+            <a class="btn btn--light" id="mailtoLink" href="mailto:a.llorensboixader@edu.gva.es">
+              <i data-lucide="send" aria-hidden="true"></i> <span data-i18n="s8.write">Escriure'ns</span>
+            </a>
+          </div>
+          <p class="contact__status" id="copyStatus" role="status" aria-live="polite"></p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ BARRA INFERIOR DE NAVEGACIÓ ============ -->
+  <footer class="navbar">
+    <nav class="navbar__inner" aria-label="Navegació entre diapositives" data-i18n-attr="aria-label:ui.slideNav">
+      <button class="nav-btn" type="button" id="prevBtn" aria-label="Diapositiva anterior" data-i18n-attr="aria-label:ui.prevLabel">
+        <i data-lucide="chevron-left" aria-hidden="true"></i>
+        <span class="nav-btn__text" data-i18n="ui.prev">Anterior</span>
+      </button>
+
+      <p class="counter" aria-live="off">
+        <span id="counterCurrent">1</span>
+        <span class="counter__sep" aria-hidden="true">/</span>
+        <span id="counterTotal">12</span>
+      </p>
+
+      <button class="nav-btn nav-btn--next" type="button" id="nextBtn" aria-label="Diapositiva següent" data-i18n-attr="aria-label:ui.nextLabel">
+        <span class="nav-btn__text" data-i18n="ui.next">Següent</span>
+        <i data-lucide="chevron-right" aria-hidden="true"></i>
+      </button>
+    </nav>
+  </footer>
+
+  <!-- Anuncis per a lectors de pantalla -->
+  <p class="sr-only" id="liveRegion" aria-live="polite" aria-atomic="true"></p>
+</body>
+</html>

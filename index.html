@@ -37,6 +37,12 @@
       </p>
 
       <div class="topbar__tools">
+        <button class="music-toggle" type="button" id="musicToggle" aria-pressed="false" aria-label="Activar la música">
+          <i data-lucide="volume-x" class="icon-off" aria-hidden="true"></i>
+          <span class="music-toggle__bars" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+        <audio id="bgMusic" src="audio/musica-fondo.mp3" preload="none" loop></audio>
+
         <div class="lang-switch" role="group" aria-label="Idioma" data-i18n-attr="aria-label:ui.language">
           <button type="button" data-lang="va" lang="ca-valencia" aria-pressed="true" aria-label="Valencià">VA</button>
           <button type="button" data-lang="es" lang="es" aria-pressed="false" aria-label="Castellano">ES</button>

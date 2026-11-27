@@ -105,6 +105,7 @@
     if (typeof netScene !== 'undefined' && netScene) netScene.redraw();
     if (typeof quiz !== 'undefined' && quiz) quiz.render();
     if (typeof tco !== 'undefined' && tco) tco.render();
+    if (typeof music !== 'undefined' && music) music.sync();
   }
 
   document.querySelectorAll('.lang-switch [data-lang]').forEach(function (btn) {
@@ -141,6 +142,7 @@
     if (typeof netScene !== 'undefined' && netScene) netScene.redraw();
     if (typeof quiz !== 'undefined' && quiz) quiz.render();
     if (typeof tco !== 'undefined' && tco) tco.render();
+    if (typeof music !== 'undefined' && music) music.sync();
   }
 
   if (themeToggle) {
@@ -312,6 +314,10 @@
         if (t.closest && t.closest('button, a, summary, [role="tab"]')) return;
         e.preventDefault();
         if (e.shiftKey) prev(); else next();
+        break;
+      case 'm':
+      case 'M':
+        if (typeof music !== 'undefined' && music) { e.preventDefault(); music.toggle(); }
         break;
       case 'Home':
         if (inTablist) return;
@@ -1791,6 +1797,80 @@
       sync: function () { if (slide.classList.contains('is-active')) start(); else stop(); },
       redraw: function () { if (!running) draw(); }
     };
+  })();
+
+  /* ---------- Música de fons ---------- */
+  const music = (function setupMusic() {
+    const audio = document.getElementById('bgMusic');
+    const btn = document.getElementById('musicToggle');
+    if (!audio || !btn) return null;
+    const TARGET = 0.5;          // volum de fons (l'arxiu ja està normalitzat)
+    let fadeTimer = null;
+    let wasPlayingBeforeHide = false;
+
+    function sync() {
+      const on = !audio.paused;
+      btn.classList.toggle('is-playing', on);
+      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      btn.setAttribute('aria-label', on ? t('musicOff') : t('musicOn'));
+      btn.title = btn.getAttribute('aria-label') + ' (M)';
+    }
+
+    function fadeTo(target, ms, done) {
+      clearInterval(fadeTimer);
+      const from = audio.volume;
+      const steps = Math.max(1, Math.round(ms / 50));
+      let i = 0;
+      fadeTimer = setInterval(function () {
+        i += 1;
+        audio.volume = Math.max(0, Math.min(1, from + (target - from) * (i / steps)));
+        if (i >= steps) { clearInterval(fadeTimer); if (done) done(); }
+      }, 50);
+    }
+
+    function play(remember) {
+      audio.volume = 0;
+      const p = audio.play();
+      if (p && p.catch) p.catch(function () { sync(); });
+      fadeTo(TARGET, 1500);
+      if (remember) storageSet('deck-music', 'on');
+      sync();
+    }
+
+    function pause(remember) {
+      fadeTo(0, 600, function () { audio.pause(); sync(); });
+      if (remember) storageSet('deck-music', 'off');
+      btn.classList.remove('is-playing');
+    }
+
+    function toggle() {
+      if (audio.paused) play(true); else pause(true);
+      liveRegion.textContent = audio.paused ? t('musicStarted') : t('musicStopped');
+    }
+
+    btn.addEventListener('click', toggle);
+    audio.addEventListener('play', sync);
+    audio.addEventListener('pause', sync);
+
+    // S'inicia sola en prémer «Començar la presentació», tret que s'haja silenciat abans
+    document.querySelectorAll('.cover [data-goto]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        if (audio.paused && storageGet('deck-music') !== 'off') play(false);
+      });
+    });
+
+    // Es pausa si la pestanya queda oculta i es reprén en tornar
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) {
+        wasPlayingBeforeHide = !audio.paused;
+        if (wasPlayingBeforeHide) audio.pause();
+      } else if (wasPlayingBeforeHide) {
+        play(false);
+      }
+    });
+
+    sync();
+    return { toggle: toggle, sync: sync };
   })();
 
   /* ---------- Inici ---------- */

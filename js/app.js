@@ -1890,7 +1890,7 @@
   // Idioma: ?lang=es a l'URL > preferència desada > valencià
   const urlLang = new URLSearchParams(window.location.search).get('lang');
   const savedLang = storageGet('deck-lang');
-  applyLanguage(LANGS.indexOf(urlLang) !== -1 ? urlLang : (savedLang || DEFAULT_LANG), { persist: !!urlLang });
+  applyLanguage(LANGS.indexOf(urlLang) !== -1 ? urlLang : (savedLang || 'es'), { persist: !!urlLang });
 
   // Tema: preferència desada > mode nit (pensat per a projector)
   applyTheme(storageGet('deck-theme') === 'light' ? 'light' : 'dark', { persist: false });
